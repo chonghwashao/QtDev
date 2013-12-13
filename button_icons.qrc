@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>res/add_24x24.png</file>
+        <file>res/addDirbtn_24x24.png</file>
+        <file>res/rmbtn_24x24.png</file>
+        <file alias="delete">res/del_20x20.png</file>
+        <file alias="select">res/sel_20x20.png</file>
+    </qresource>
+</RCC>
