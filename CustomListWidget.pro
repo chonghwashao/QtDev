@@ -16,12 +16,14 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     customlistwidget.cpp \
     rdgeomosaicdlg.cpp \
-    custonbutton.cpp
+    custonbutton.cpp \
+    customitemwidget.cpp
 
 HEADERS  += mainwindow.h \
     customlistwidget.h \
     rdgeomosaicdlg.h \
-    custonbutton.h
+    custonbutton.h \
+    customitemwidget.h
 
 FORMS    += mainwindow.ui \
     rdgeomosaicdlg.ui

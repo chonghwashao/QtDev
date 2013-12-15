@@ -14,10 +14,10 @@ public:
     QListWidgetItem* item;
 
 signals:
-    void itemClicked(QListWidgetItem *itm);
+    void minusClicked(QListWidgetItem *itm);
 
 public slots:
-    void selectItem();
+    void reomveItem();
 };
 
 #endif // CUSTONBUTTON_H

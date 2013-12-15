@@ -2,6 +2,7 @@
 #include "ui_rdgeomosaicdlg.h"
 #include <QDebug>
 #include "custonbutton.h"
+#include "customitemwidget.h"
 
 RdGeoMosaicDlg::RdGeoMosaicDlg(QWidget *parent) :
     QDialog(parent),
@@ -27,35 +28,14 @@ void RdGeoMosaicDlg::addItem()
     QListWidgetItem* item = new QListWidgetItem();
     QIcon icon = QIcon::fromTheme("edit-undo");
     item->setIcon(icon);
-    item->setFlags (item->flags() | Qt::ItemIsEditable);
+    //item->setFlags (item->flags() | Qt::ItemIsEditable);
     item->setSizeHint(QSize(item->sizeHint().width(), 20));
     ui->customList->addItem(item);
-
-    /**
-      添加按钮及响应
-    */
-    CustonButton *plusBtn = new CustonButton(item);
-    plusBtn->setMaximumSize(24,24);
-    plusBtn->setIcon(QIcon(":/icons/select"));
-    CustonButton *minusBtn = new CustonButton(item);
-    minusBtn->setMaximumSize(24,24);
-    minusBtn->setIcon(QIcon(":/icons/delete"));
-    QLineEdit* lineEdit = new QLineEdit();
-    lineEdit->setMaxLength(512);
-    //QObject::connect(plusBtn, SIGNAL(clicked()), ui->customList,  SLOT(itemClicked(QListWidgetItem *)));
-    QObject::connect(minusBtn, SIGNAL(itemClicked(QListWidgetItem *)), this,  SLOT(removeItem(QListWidgetItem *)));
-    QObject::connect(plusBtn, SIGNAL(itemClicked(QListWidgetItem *)), this, SLOT(selectImg(QListWidgetItem *)));
-    QHBoxLayout *layout= new QHBoxLayout();
-    layout->setSpacing(1);
-    layout->setContentsMargins(0,0,0,0);
-    layout->addWidget(lineEdit);
-    layout->addWidget(plusBtn);
-    layout->addWidget(minusBtn);
-    QWidget *widget = new QWidget();
-    widget->setLayout(layout);
-    //item->setSizeHint(widget->sizeHint());
+    // 添加定制的Item
+    CustomItemWidget *widget = new CustomItemWidget(item, this);
     ui->customList->setItemWidget(item, widget);
     ui->customList->setCurrentItem(item);
+    connect(widget, SIGNAL(removeItem(QListWidgetItem *)), this, SLOT(removeItem(QListWidgetItem *)));
 }
 
 void RdGeoMosaicDlg::removeItem(QListWidgetItem *item)
@@ -69,10 +49,11 @@ void RdGeoMosaicDlg::addItems()
 
 }
 
-void RdGeoMosaicDlg::selectImg(QListWidgetItem *item)
+void RdGeoMosaicDlg::selectImg(QWidget *w)
 {
     qDebug() << "===========================";
-    QWidget *widget = itemWidget(item);
+    QLineEdit *edit = (QLineEdit *)w;
+    edit->setText("hello world");
 
 }
 

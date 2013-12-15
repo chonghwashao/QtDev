@@ -3,10 +3,11 @@
 CustonButton::CustonButton(QListWidgetItem *item, QWidget *parent) :
     QPushButton(parent), item(item)
 {
-    connect(this, SIGNAL(clicked()), this, SLOT(selectItem()));
+    connect(this, SIGNAL(clicked()), this, SLOT(reomveItem()));
 }
 
-void CustonButton::selectItem()
+void CustonButton::reomveItem()
 {
-    emit itemClicked(item);
+    emit minusClicked(item);
 }
+
