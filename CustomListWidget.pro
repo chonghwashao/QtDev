@@ -15,13 +15,11 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     customlistwidget.cpp \
-    customlineedit.cpp \
     rdgeomosaicdlg.cpp \
     custonbutton.cpp
 
 HEADERS  += mainwindow.h \
     customlistwidget.h \
-    customlineedit.h \
     rdgeomosaicdlg.h \
     custonbutton.h
 

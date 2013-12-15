@@ -44,7 +44,7 @@ void RdGeoMosaicDlg::addItem()
     lineEdit->setMaxLength(512);
     //QObject::connect(plusBtn, SIGNAL(clicked()), ui->customList,  SLOT(itemClicked(QListWidgetItem *)));
     QObject::connect(minusBtn, SIGNAL(itemClicked(QListWidgetItem *)), this,  SLOT(removeItem(QListWidgetItem *)));
-    QObject::connect(plusBtn, SIGNAL(clicked()), this, SLOT(selectImg()));
+    QObject::connect(plusBtn, SIGNAL(itemClicked(QListWidgetItem *)), this, SLOT(selectImg(QListWidgetItem *)));
     QHBoxLayout *layout= new QHBoxLayout();
     layout->setSpacing(1);
     layout->setContentsMargins(0,0,0,0);
@@ -69,12 +69,11 @@ void RdGeoMosaicDlg::addItems()
 
 }
 
-void RdGeoMosaicDlg::selectImg()
+void RdGeoMosaicDlg::selectImg(QListWidgetItem *item)
 {
     qDebug() << "===========================";
-//    QListWidgetItem* itm = ui->customList->currentItem();
-//    ui->customList->removeItemWidget(itm);
-    //    delete itm;
+    QWidget *widget = itemWidget(item);
+
 }
 
 void RdGeoMosaicDlg::execMosaic()

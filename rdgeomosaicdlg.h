@@ -20,7 +20,7 @@ protected slots:
     void addItem();
     void removeItem(QListWidgetItem* item);
     void addItems();
-    void selectImg();
+    void selectImg(QListWidgetItem *);
     void execMosaic();
 private:
     Ui::RdGeoMosaicDlg *ui;

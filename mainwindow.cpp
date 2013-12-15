@@ -1,9 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QtWidgets/QLineEdit>
-#include "customlineedit.h"
+#include <QtWidgets/QPushButton>
 #include <QDebug>
-#include <QPushButton>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
