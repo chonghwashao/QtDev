@@ -32,6 +32,7 @@ CustomItemWidget::CustomItemWidget(QListWidgetItem *item,QWidget *parent) :
 void CustomItemWidget::changeItem()
 {
     QFileDialog dlg(this,"选择影像...");
+    dlg.setNameFilter(tr("Image Files(*.tiff *.tif *.jpg *.png)"));
     if(dlg.exec()==QFileDialog::Accepted) // ok
     {
         QString fn = dlg.selectedFiles()[0];
@@ -41,7 +42,5 @@ void CustomItemWidget::changeItem()
 
 void CustomItemWidget::removeItem()
 {
-    //((QListWidget *)parent())->removeItemWidget(item);
-    //delete item;
     emit removeItem(item);
 }
